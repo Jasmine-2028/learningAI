@@ -79,11 +79,24 @@ xyz = nib.affines.apply_affine(
     ijk
 ) #将MRI数组中的这个位置转换成对应的RAS+物理空间坐标
 
-print("Voxel coordinate:",ijk)
-print("World cordinate:",xyz)
+print("Voxel coordinate:",ijk) #数组索引坐标
+print("World cordinate:",xyz) #物理空间坐标，RAS+空间坐标系
 print("Orientation:",nib.aff2axcodes(img_ras.affine))
 
 #endregion
 
 #region MRI三视图和空间方向
-import matplotlib
+import matplotlib.plot as plt
+
+i=mri.shape [0]//2
+j = mri.shape[1]//2
+k = mri.shape[2]//2
+
+axial = mri[:,:,k]
+coronal = mei[:.j.:]
+sagittal = mri[i,:,:]
+
+print("Axial:",axial.shape)
+print("Coronal:",coronal.shape)
+print("Sagittal:",sagittal.shape)
+
